@@ -6,10 +6,10 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
 		/>
-		<title>MCU OS | Sign In</title>
+		<title>Stark OS | Access Terminal</title>
 		<link rel="shortcut icon" href="favicon.ico" />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;500&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="index.css" />
@@ -17,49 +17,57 @@
 	</head>
 
 	<body class="login-body">
-		<div class="reactor-glow reactor-glow-a"></div>
-		<div class="reactor-glow reactor-glow-b"></div>
+		<svg class="hud-ring" viewBox="0 0 400 400" aria-hidden="true">
+			<circle cx="200" cy="200" r="150" />
+			<circle cx="200" cy="200" r="120" stroke-dasharray="2 10" />
+			<g class="hud-ticks">
+				<line x1="200" y1="20" x2="200" y2="45" />
+				<line x1="200" y1="355" x2="200" y2="380" />
+				<line x1="20" y1="200" x2="45" y2="200" />
+				<line x1="355" y1="200" x2="380" y2="200" />
+			</g>
+		</svg>
 
-		<div class="login-card">
-			<div class="reactor-ring">
-				<div class="reactor-core"></div>
-			</div>
+		<div class="grid-overlay" aria-hidden="true"></div>
 
-			<h1 class="login-title">MCU <span>OS</span></h1>
-			<p class="login-subtitle">Stark Industries Secure Access</p>
+		<main class="terminal">
+			<div class="terminal-corner tl"></div>
+			<div class="terminal-corner tr"></div>
+			<div class="terminal-corner bl"></div>
+			<div class="terminal-corner br"></div>
+
+			<p class="terminal-eyebrow">Stark Industries</p>
+			<h1 class="terminal-title">STARK OS</h1>
+			<p class="terminal-sub">Personal access terminal</p>
 
 			<form id="login-form" autocomplete="off">
 				<label class="field">
-					<span class="field-label">Username</span>
+					<span class="field-label">User</span>
 					<input
 						id="login-username"
 						type="text"
-						placeholder="Agent identifier"
 						autocomplete="username"
 						required
 					/>
 				</label>
 
 				<label class="field">
-					<span class="field-label">Password</span>
+					<span class="field-label">Passcode</span>
 					<input
 						id="login-password"
 						type="password"
-						placeholder="Access code"
 						autocomplete="current-password"
 						required
 					/>
 				</label>
 
-				<button type="submit" class="login-btn">
-					<span>Authenticate</span>
-				</button>
+				<button type="submit" class="login-btn">Authenticate</button>
 
 				<p id="login-error" class="login-error"></p>
 			</form>
 
-			<p class="login-footer">Unauthorized access will be reported to F.R.I.D.A.Y.</p>
-		</div>
+			<p class="terminal-footnote">Local session lock. Not a security boundary.</p>
+		</main>
 
 		<script src="login.js" defer></script>
 	</body>
