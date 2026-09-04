@@ -6,7 +6,7 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
 		/>
-		<title>MCU OS</title>
+		<title>Stark OS</title>
 		<link rel="shortcut icon" href="favicon.ico" />
 
 		<!-- Auth gate: must run before anything else renders -->
@@ -16,7 +16,7 @@
 		<script src="/baremux/index.js"></script>
 
 		<link
-			href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;500&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"
 			rel="stylesheet"
 		/>
 		<link rel="stylesheet" href="index.css" />
@@ -31,22 +31,35 @@
 	<body class="os-body">
 		<div class="desktop" id="desktop">
 			<div class="desktop-bg-grid"></div>
-			<div class="reactor-glow reactor-glow-a"></div>
-			<div class="reactor-glow reactor-glow-b"></div>
 
 			<!-- Desktop icons -->
 			<div class="desktop-icons">
 				<button class="desktop-icon" data-app="browser">
-					<span class="icon-glyph icon-browser"></span>
+					<span class="icon-glyph">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+							<circle cx="12" cy="12" r="9" />
+							<path d="M3 12h18M12 3c2.5 2.6 3.8 5.7 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.7-3.8-9s1.3-6.4 3.8-9z" />
+						</svg>
+					</span>
 					<span class="icon-label">Browser</span>
 				</button>
 				<button class="desktop-icon" data-app="notes">
-					<span class="icon-glyph icon-notes"></span>
-					<span class="icon-label">F.R.I.D.A.Y. Notes</span>
+					<span class="icon-glyph">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+							<path d="M6 3h9l4 4v14a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+							<path d="M14 3v5h5M8 12h8M8 16h5" />
+						</svg>
+					</span>
+					<span class="icon-label">Notes</span>
 				</button>
-				<button class="desktop-icon" data-app="about">
-					<span class="icon-glyph icon-about"></span>
-					<span class="icon-label">About MCU OS</span>
+				<button class="desktop-icon" data-app="system">
+					<span class="icon-glyph">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+							<rect x="3" y="4" width="18" height="13" rx="1" />
+							<path d="M8 21h8M12 17v4" />
+						</svg>
+					</span>
+					<span class="icon-label">System</span>
 				</button>
 			</div>
 
@@ -56,8 +69,8 @@
 			<!-- Taskbar -->
 			<div class="taskbar">
 				<button class="start-btn" id="start-btn">
-					<span class="start-glyph"></span>
-					MCU OS
+					<span class="start-dot"></span>
+					Stark OS
 				</button>
 				<div class="taskbar-running" id="taskbar-running"></div>
 				<div class="taskbar-right">
@@ -81,7 +94,7 @@
 					<input
 						id="sj-address"
 						type="text"
-						placeholder="Search the web freely"
+						placeholder="Search or enter address"
 						autocomplete="off"
 					/>
 					<button type="submit" class="browser-go-btn">Go</button>
@@ -99,25 +112,23 @@
 			<div class="notes-app">
 				<textarea
 					id="notes-textarea"
-					placeholder="Debrief notes, Avenger... (saved locally in this browser)"
+					placeholder="Notes are saved locally in this browser."
 				></textarea>
 			</div>
 		</template>
 
-		<!-- About app template -->
-		<template id="about-app-template">
-			<div class="about-app">
-				<h2>MCU OS</h2>
-				<p>
-					A personal, home-lab desktop UI built on top of
-					<a href="https://github.com/MercuryWorkshop/Scramjet-Demo" target="_blank" rel="noreferrer">Scramjet</a>,
-					the web proxy by Mercury Workshop.
-				</p>
-				<p class="about-note">
-					This login screen is a client-side convenience gate for a local
-					project — it is not real security.
-				</p>
-				<p><a href="credits.html">View third-party licenses</a></p>
+		<!-- System app template -->
+		<template id="system-app-template">
+			<div class="system-app">
+				<dl class="system-list">
+					<dt>Proxy</dt>
+					<dd>Scramjet (Mercury Workshop)</dd>
+					<dt>Session</dt>
+					<dd>Local, browser-only</dd>
+					<dt>Access</dt>
+					<dd>Client-side lock — not a security boundary</dd>
+				</dl>
+				<p><a href="credits.html">Third-party licenses</a></p>
 			</div>
 		</template>
 	</body>
