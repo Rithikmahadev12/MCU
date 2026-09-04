@@ -1,0 +1,214 @@
+.login-body {
+	background: radial-gradient(
+			circle at 50% 20%,
+			rgba(200, 16, 46, 0.18),
+			transparent 55%
+		),
+		var(--mcu-black);
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+	font-family: "Roboto", Arial, sans-serif;
+}
+
+.reactor-glow {
+	position: absolute;
+	border-radius: 50%;
+	filter: blur(60px);
+	opacity: 0.5;
+	pointer-events: none;
+}
+
+.reactor-glow-a {
+	width: 480px;
+	height: 480px;
+	top: -140px;
+	left: -140px;
+	background: var(--mcu-red);
+}
+
+.reactor-glow-b {
+	width: 420px;
+	height: 420px;
+	bottom: -160px;
+	right: -120px;
+	background: var(--mcu-gold);
+	opacity: 0.25;
+}
+
+.login-card {
+	position: relative;
+	z-index: 1;
+	width: 340px;
+	padding: 40px 32px 28px;
+	background: linear-gradient(180deg, var(--mcu-panel), var(--mcu-black));
+	border: 1px solid var(--mcu-border);
+	border-radius: 16px;
+	box-shadow:
+		0 0 0 1px rgba(0, 0, 0, 0.4),
+		0 30px 60px rgba(0, 0, 0, 0.55),
+		0 0 40px rgba(200, 16, 46, 0.15);
+	text-align: center;
+}
+
+.login-card.shake {
+	animation: login-shake 0.4s ease;
+}
+
+@keyframes login-shake {
+	10%,
+	90% {
+		transform: translateX(-2px);
+	}
+	20%,
+	80% {
+		transform: translateX(4px);
+	}
+	30%,
+	50%,
+	70% {
+		transform: translateX(-8px);
+	}
+	40%,
+	60% {
+		transform: translateX(8px);
+	}
+}
+
+.reactor-ring {
+	width: 64px;
+	height: 64px;
+	margin: 0 auto 18px;
+	border-radius: 50%;
+	background: conic-gradient(
+		from 0deg,
+		var(--mcu-gold-bright),
+		var(--mcu-red-bright),
+		var(--mcu-gold-bright)
+	);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 0 24px rgba(255, 209, 102, 0.45);
+	animation: reactor-spin 6s linear infinite;
+}
+
+@keyframes reactor-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.reactor-core {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: radial-gradient(circle, #eafcff, var(--mcu-blue-glow) 70%);
+	box-shadow: 0 0 18px var(--mcu-blue-glow);
+}
+
+.login-title {
+	font-family: "Orbitron", "Roboto", sans-serif;
+	font-weight: 900;
+	letter-spacing: 3px;
+	color: var(--mcu-text);
+	margin: 0 0 4px;
+	font-size: 26px;
+}
+
+.login-title span {
+	color: var(--mcu-red-bright);
+}
+
+.login-subtitle {
+	margin: 0 0 24px;
+	color: var(--mcu-text-dim);
+	font-size: 13px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.field {
+	display: block;
+	text-align: left;
+	margin-bottom: 16px;
+}
+
+.field-label {
+	display: block;
+	font-size: 11px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: var(--mcu-text-dim);
+	margin-bottom: 6px;
+}
+
+.field input {
+	width: 100%;
+	box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.04);
+	border: 1px solid var(--mcu-border);
+	border-radius: 8px;
+	padding: 12px 14px;
+	color: var(--mcu-text);
+	font-size: 14px;
+	font-family: inherit;
+	outline: none;
+	transition:
+		border-color 0.15s,
+		box-shadow 0.15s;
+}
+
+.field input:focus {
+	border-color: var(--mcu-gold-bright);
+	box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+.login-btn {
+	width: 100%;
+	margin-top: 6px;
+	padding: 13px 0;
+	border: none;
+	border-radius: 8px;
+	background: linear-gradient(
+		135deg,
+		var(--mcu-red-bright),
+		var(--mcu-red) 60%
+	);
+	color: #fff;
+	font-family: "Orbitron", sans-serif;
+	font-weight: 700;
+	letter-spacing: 1.5px;
+	font-size: 13px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition:
+		transform 0.1s,
+		box-shadow 0.15s;
+	box-shadow: 0 10px 24px rgba(200, 16, 46, 0.35);
+}
+
+.login-btn:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 14px 28px rgba(200, 16, 46, 0.45);
+}
+
+.login-btn:active {
+	transform: translateY(0);
+}
+
+.login-error {
+	min-height: 18px;
+	margin: 12px 0 0;
+	color: var(--mcu-red-bright);
+	font-size: 12px;
+}
+
+.login-footer {
+	margin: 18px 0 0;
+	font-size: 11px;
+	color: var(--mcu-text-dim);
+}
