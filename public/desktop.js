@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Minimal window manager for MCU OS.
+ * Minimal window manager for Stark OS.
  * Handles opening/closing/focusing/dragging simple app windows that are
  * cloned from <template> tags in index.html.
  */
@@ -18,8 +18,8 @@ const openWindows = new Map(); // appId -> window element
 
 const APP_CONFIG = {
 	browser: { title: "Browser", template: "browser-app-template", width: 820, height: 560 },
-	notes: { title: "F.R.I.D.A.Y. Notes", template: "notes-app-template", width: 420, height: 380 },
-	about: { title: "About MCU OS", template: "about-app-template", width: 420, height: 320 },
+	notes: { title: "Notes", template: "notes-app-template", width: 420, height: 380 },
+	system: { title: "System", template: "system-app-template", width: 420, height: 300 },
 };
 
 function updateClock() {
@@ -144,10 +144,10 @@ function makeDraggable(win) {
 
 function initNotesApp(win) {
 	const textarea = win.querySelector("#notes-textarea");
-	const saved = localStorage.getItem("mcuOsNotes");
+	const saved = localStorage.getItem("starkOsNotes");
 	if (saved) textarea.value = saved;
 	textarea.addEventListener("input", () => {
-		localStorage.setItem("mcuOsNotes", textarea.value);
+		localStorage.setItem("starkOsNotes", textarea.value);
 	});
 }
 
@@ -157,10 +157,10 @@ document.querySelectorAll(".desktop-icon").forEach((icon) => {
 });
 
 logoutBtn.addEventListener("click", () => {
-	sessionStorage.removeItem("mcuOsAuthenticated");
+	sessionStorage.removeItem("starkOsAuthenticated");
 	location.replace("login.html");
 });
 
 startBtn.addEventListener("click", () => {
-	openApp("about");
+	openApp("system");
 });
