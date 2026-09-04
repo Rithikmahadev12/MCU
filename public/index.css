@@ -1,17 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap");
 
 :root {
-	--mcu-black: #0a0b0d;
-	--mcu-panel: #14161a;
-	--mcu-panel-light: #1d2026;
-	--mcu-red: #c8102e;
-	--mcu-red-bright: #ff2b45;
-	--mcu-gold: #d4af37;
-	--mcu-gold-bright: #ffd166;
-	--mcu-blue-glow: #4fd8ff;
-	--mcu-text: #f3f3f3;
-	--mcu-text-dim: rgba(243, 243, 243, 0.6);
-	--mcu-border: rgba(212, 175, 55, 0.35);
+	--stark-void: #05070a;
+	--stark-panel: #0c1218;
+	--stark-panel-raised: #121b23;
+	--stark-cyan: #4fd1ff;
+	--stark-cyan-dim: rgba(79, 209, 255, 0.4);
+	--stark-cyan-faint: rgba(79, 209, 255, 0.12);
+	--stark-amber: #ffab4a;
+	--stark-red: #ff5c5c;
+	--stark-text: #e6eef2;
+	--stark-text-dim: rgba(230, 238, 242, 0.55);
+	--stark-hairline: rgba(120, 200, 255, 0.16);
+	--stark-hairline-strong: rgba(120, 200, 255, 0.45);
+	--font-display: "Space Grotesk", "Roboto", sans-serif;
+	--font-body: "IBM Plex Sans", "Roboto", sans-serif;
+	--font-mono: "IBM Plex Mono", "Courier New", monospace;
 }
 
 body {
