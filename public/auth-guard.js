@@ -7,7 +7,7 @@
  * a real access-control layer (see login.js for the same caveat).
  */
 (function guard() {
-	if (sessionStorage.getItem("mcuOsAuthenticated") !== "true") {
+	if (sessionStorage.getItem("starkOsAuthenticated") !== "true") {
 		location.replace("login.html");
 	}
 })();
