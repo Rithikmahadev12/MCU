@@ -1,10 +1,5 @@
 "use strict";
 
-/**
- * Scramjet wiring for the "Browser" app window.
- * Adapted from the original single-page index.js so the proxy frame renders
- * inside a window's content area instead of covering the whole document.
- */
 
 let scramjetController = null;
 let bareMuxConnection = null;
