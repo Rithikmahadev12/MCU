@@ -6,17 +6,18 @@
  * read the credentials below. Do not rely on this to protect anything
  * sensitive or to gate access on a network you don't control.
  */
-const MCU_OS_CREDENTIALS = {
+const STARK_OS_CREDENTIALS = {
 	username: "MCU",
 	password: "Spidey_stark4k",
 };
 
-const SESSION_KEY = "mcuOsAuthenticated";
+const SESSION_KEY = "starkOsAuthenticated";
 
 const form = document.getElementById("login-form");
 const usernameInput = document.getElementById("login-username");
 const passwordInput = document.getElementById("login-password");
 const errorEl = document.getElementById("login-error");
+const terminal = document.querySelector(".terminal");
 
 // If already logged in this session, skip straight to the desktop.
 if (sessionStorage.getItem(SESSION_KEY) === "true") {
@@ -30,18 +31,17 @@ form.addEventListener("submit", (event) => {
 	const password = passwordInput.value;
 
 	if (
-		username === MCU_OS_CREDENTIALS.username &&
-		password === MCU_OS_CREDENTIALS.password
+		username === STARK_OS_CREDENTIALS.username &&
+		password === STARK_OS_CREDENTIALS.password
 	) {
 		sessionStorage.setItem(SESSION_KEY, "true");
 		location.href = "index.html";
 		return;
 	}
 
-	errorEl.textContent = "Access denied. Credentials not recognized.";
-	document.querySelector(".login-card").classList.remove("shake");
-	// restart the shake animation
-	void document.querySelector(".login-card").offsetWidth;
-	document.querySelector(".login-card").classList.add("shake");
+	errorEl.textContent = "Access denied.";
+	terminal.classList.remove("shake");
+	void terminal.offsetWidth; // restart the shake animation
+	terminal.classList.add("shake");
 	passwordInput.value = "";
 });
